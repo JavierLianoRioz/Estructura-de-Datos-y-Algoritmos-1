@@ -52,9 +52,9 @@ public class Mundo {
 
     private void llegadaDeNiños() {
         int minutos = 10;
-        if (tiempo.menosDe(minutos)) lleganEntre0Y2();
+        if (tiempo.menosOIgualDe(minutos)) lleganEntre0Y2();
         minutos = 30;
-        if (tiempo.menosDe(minutos)) llega1De3Veces();
+        if (tiempo.menosOIgualDe(minutos)) llega1De3Veces();
     }
 
     private void llega1De3Veces() {

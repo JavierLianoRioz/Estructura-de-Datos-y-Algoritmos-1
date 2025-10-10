@@ -1,14 +1,14 @@
 
 public class Tiempo {
 
-    public boolean menosDe(int minutos) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'menosDe'");
+    private int minutos;
+
+    public boolean menosOIgualDe(int minutos) {
+        return minutos <= 10;
     }
 
     public void siguiente() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'siguiente'");
+        minutos++;
     }
 
 }
