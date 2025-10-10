@@ -1,38 +1,78 @@
 
 public class Monitora {
 
-    public Monitora(String string) {
-        //TODO Auto-generated constructor stub
+    private String nombre;
+
+    private boolean jugando;
+    private static final int NIÑOS_MINIMOS_PARA_JUGAR = 5;
+    private String pizarrin;
+
+    private Niño primerNiño;
+    private int niñosEnLaCola;
+
+    private boolean haJugado;
+
+    public Monitora(String nombre) {
+        this.nombre = nombre;
     }
 
     public void recibe(Niño niño) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'recibe'");
+        if (tieneNiño())
+            primerNiño = niño;
+        else
+            primerNiño.recibe(niño);
+    }
+
+    private boolean tieneNiño() {
+        return primerNiño != null;
     }
 
     public boolean estaJugando() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'estaJugando'");
+        return jugando;
     }
 
-    public void pasarNiñoA(Monitora otroMonitor) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'pasarNiñoA'");
+    public void pasarNiñosA(Monitora otroMonitor) {
+        if (tieneNiño()) {
+            otroMonitor.recibe(primerNiño);
+            primerNiño = null;
+        }
     }
 
     public boolean puedeJugar() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'puedeJugar'");
+        return niñosEnLaCola >= NIÑOS_MINIMOS_PARA_JUGAR && !estaJugando();
     }
 
     public void juega() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'juega'");
+        if (puedeJugar()) {
+            jugando = true;
+            limpiaPizarra();
+            mandarLimpiarPizarrines();
+            escribe("LOSSECRETO");
+        }
+    }
+
+    private void mandarLimpiarPizarrines() {
+        pizarrin = "";
+        primerNiño.limpiarPizarrin();
+    }
+
+    private void escribe(String mensaje) {
+        pizarrin = mensaje;
+    }
+
+    private void limpiaPizarra() {
+        Console.clear();
     }
 
     public void siguienteRonda() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'siguienteRonda'");
+        if (!haJugado)
+            enseñar(pizarrin, primerNiño);
+        else 
+            primerNiño.jugar();
+    }
+
+    private void enseñar(String pizarrin, Niño niño) {
+        niño.lee(pizarrin);
     }
 
 }

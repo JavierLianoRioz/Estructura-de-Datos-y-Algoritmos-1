@@ -22,7 +22,7 @@ public class Ludoteca {
     public void recibe(Niño niño) {
         lydia.recibe(niño);
         if (!aisha.estaJugando()) {
-            lydia.pasarNiñoA(aisha);
+            lydia.pasarNiñosA(aisha);
             if (aisha.puedeJugar())
                 aisha.juega();
         }
