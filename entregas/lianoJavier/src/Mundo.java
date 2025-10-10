@@ -36,15 +36,18 @@ public class Mundo {
     }
 
     public Mundo() {
-        ludoteca = new Ludoteca();
+        ludoteca = new Ludoteca(tiempo);
         tiempo = new Tiempo();
     }
 
     private Ludoteca ludoteca;
 
     private void simular() {
-        llegadaDeNiños();
-        ludoteca.actualizar();
+        while (ludoteca.abierta()) {
+            llegadaDeNiños();
+            ludoteca.actualizar();
+            tiempo.siguiente();
+        }
     }
 
     private void llegadaDeNiños() {

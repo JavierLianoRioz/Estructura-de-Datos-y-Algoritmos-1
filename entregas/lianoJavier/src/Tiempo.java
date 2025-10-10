@@ -6,4 +6,9 @@ public class Tiempo {
         throw new UnsupportedOperationException("Unimplemented method 'menosDe'");
     }
 
+    public void siguiente() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'siguiente'");
+    }
+
 }
