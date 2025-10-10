@@ -1,23 +1,35 @@
 
 public class Ludoteca {
 
+    private static final int TIEMPO_ABIERTO = 2;
+    private static final int MINUTOS_POR_HORA = 60;
+
+    Tiempo tiempo;
+
+    Monitora lydia = new Monitora("Lydia");
+    Monitora aisha = new Monitora("Aisha");
+    Monitora dalsy = new Monitora("Dalsy");
+
     public Ludoteca(Tiempo tiempo) {
-        //TODO Auto-generated constructor stub
+        this.tiempo = tiempo;
     }
 
     public void actualizar() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'actualizar'");
+        if (aisha.estaJugando())
+            aisha.siguienteRonda();
     }
 
     public void recibe(Niño niño) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'recibe'");
+        lydia.recibe(niño);
+        if (!aisha.estaJugando()) {
+            lydia.pasarNiñoA(aisha);
+            if (aisha.puedeJugar())
+                aisha.juega();
+        }
     }
 
     public boolean abierta() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'abierta'");
+        return tiempo.getMinutosTotales() < TIEMPO_ABIERTO * MINUTOS_POR_HORA;
     }
 
 }

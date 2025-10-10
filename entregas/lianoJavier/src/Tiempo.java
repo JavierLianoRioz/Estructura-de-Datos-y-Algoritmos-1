@@ -11,4 +11,8 @@ public class Tiempo {
         minutos++;
     }
 
+    public int getMinutosTotales() {
+        return minutos;
+    }
+
 }
