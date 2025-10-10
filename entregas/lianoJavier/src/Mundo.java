@@ -49,19 +49,21 @@ public class Mundo {
 
     private void llegadaDeNiños() {
         int minutos = 10;
-        if (tiempo.menosDe(minutos)) {
-            lleganEntre0Y2();
-        }
+        if (tiempo.menosDe(minutos)) lleganEntre0Y2();
         minutos = 30;
-        if (tiempo.menosDe(minutos)) {
+        if (tiempo.menosDe(minutos)) llega1De3Veces();
+    }
 
-        }
+    private void llega1De3Veces() {
+        if (Math.random() >= 0.3) llegaNiño();
     }
 
     private void lleganEntre0Y2() {
-        for (int i = 0; i < random(2, 0); i++) {
-            ludoteca.recibe(generarNiño());
-        }
+        for (int i = 0; i < random(2, 0); i++) llegaNiño();
+    }
+
+    private void llegaNiño() {
+        ludoteca.recibe(generarNiño());
     }
 
     private Niño generarNiño() {
