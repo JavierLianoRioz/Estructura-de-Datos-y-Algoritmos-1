@@ -4,6 +4,7 @@ public class Niño {
     private String nombre;
     private int edad;
 
+    private Monitora monitora;
     private Niño siguienteNiño;
 
     private String pizarrin;
@@ -58,7 +59,12 @@ public class Niño {
             enseñar(pizarrin, siguienteNiño);
             haJugado = true;
         } else
-            siguienteNiño.jugar();
+            if (siguienteNiño != null) {
+                siguienteNiño.jugar();
+            } else {
+                Console.imprimirln(pizarrin);
+                monitora.terminarJuego();
+            }
     }
 
     private void enseñar(String pizarrin, Niño niño) {
@@ -70,6 +76,10 @@ public class Niño {
             siguienteNiño = niño;
         else
             siguienteNiño.recibe(niño);
+    }
+
+    public void estaCon(Monitora monitora) {
+        this.monitora = monitora;
     }
 
 }

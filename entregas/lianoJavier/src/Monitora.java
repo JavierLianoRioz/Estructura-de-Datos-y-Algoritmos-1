@@ -17,10 +17,13 @@ public class Monitora {
     }
 
     public void recibe(Niño niño) {
-        if (tieneNiño())
+        niño.estaCon(this);
+        if (tieneNiño()) {
             primerNiño = niño;
+        }
         else
             primerNiño.recibe(niño);
+        niñosEnLaCola++;
     }
 
     private boolean tieneNiño() {
@@ -36,6 +39,7 @@ public class Monitora {
             otroMonitor.recibe(primerNiño);
             primerNiño = null;
         }
+        niñosEnLaCola = 0;
     }
 
     public boolean puedeJugar() {
@@ -74,6 +78,11 @@ public class Monitora {
 
     private void enseñar(String pizarrin, Niño niño) {
         niño.lee(pizarrin);
+    }
+
+    public void terminarJuego() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'terminarJuego'");
     }
 
 }

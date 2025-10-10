@@ -6,4 +6,9 @@ public class Console {
                 System.out.flush();
         }
 
+        public static void imprimirln(String pizarrin) {
+                // TODO Auto-generated method stub
+                throw new UnsupportedOperationException("Unimplemented method 'imprimirln'");
+        }
+
 }
