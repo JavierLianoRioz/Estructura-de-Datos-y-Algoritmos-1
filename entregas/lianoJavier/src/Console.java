@@ -2,8 +2,8 @@
 public class Console {
 
         public static void clear() {
-                // TODO Auto-generated method stub
-                throw new UnsupportedOperationException("Unimplemented method 'clear'");
+                System.out.print("\033[H\033[2J");
+                System.out.flush();
         }
 
 }
