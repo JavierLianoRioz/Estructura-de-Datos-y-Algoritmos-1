@@ -65,9 +65,10 @@ public class Monitora {
     }
 
     public void siguienteRonda() {
-        if (!haJugado)
+        if (!haJugado) {
             enseñar(pizarrin, primerNiño);
-        else 
+            haJugado = true;
+        } else
             primerNiño.jugar();
     }
 
